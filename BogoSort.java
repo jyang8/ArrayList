@@ -1,3 +1,8 @@
+// Jessica Yang
+// APCS1 pd9
+// CW
+// 2015-12-23
+
 /*======================================
   class BogoSort -- implements BogoSort algorithm
   ======================================*/
@@ -38,28 +43,36 @@ public class BogoSort {
     // Rearranges elements of input ArrayList
     // postcondition: data's elements sorted in ascending order
     public static void bogoSortV( ArrayList<Comparable> data ) {
-	boolean sorted;
-	while (!(sorted)) {
+	while (!(isSorted(data))) {
 	    shuffle(data);
 	}
-   
     }//end bogoSort -- worst and best case are O(n*n)
 
-    public boolean isSorted( ArrayList<Comparable> data ) {
+    // helper fxn to check if data is sorted
+    public static boolean isSorted( ArrayList<Comparable> data ) {
 	for (int x = 0; x < data.size()-1; x++) {
 	    if ((data.get(x)).compareTo(data.get(x+1)) > 0) {
-		sorted = false;
+		return false;
 	    }
-	    else 
-		sorted = true;
 	}
+	return true;
     }
 
     // ArrayList-returning bogoSort
     // postcondition: order of input ArrayList's elements unchanged
     //                Returns sorted copy of input ArrayList.
     public static ArrayList<Comparable> bogoSort( ArrayList<Comparable> input ) {
-	return input;
+	//declare and initialize empty ArrayList for copying
+	ArrayList<Comparable> data = new ArrayList<Comparable>();
+
+	//copy input ArrayList into working ArrayList
+	for( Comparable o : input )
+	    data.add( o );
+
+	//sort working ArrayList
+	bogoSortV( data );
+
+	return data;
     }//end bogoSort -- O(n*n)
 
 

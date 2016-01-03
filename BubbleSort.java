@@ -1,3 +1,8 @@
+// Jessica Yang
+// APCS1 pd9
+// CW
+// 2015-12-23
+
 /*======================================
   class BubbleSort -- implements bubblesort algorithm (vanilla version)
 
